@@ -1,6 +1,6 @@
 {
     "name": "puppeteer-shadow-selector",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Select elements in Shadow DOM",
     "main": "lib/index.js",
     "typings": "lib/index.d.ts",

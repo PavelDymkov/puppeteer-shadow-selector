@@ -42,8 +42,18 @@
             }
 
             customElements.define("inner-component", InnerComponent);
+
+            setTimeout(
+                () =>
+                    (document.querySelector(
+                        ".delay",
+                    ).innerHTML = `<my-component></my-component>`),
+                50,
+            );
         </script>
 
         <my-component></my-component>
+
+        <div class="delay"></div>
     </body>
 </html>
