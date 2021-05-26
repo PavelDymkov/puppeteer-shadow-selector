@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            class MyComponent extends HTMLElement {
+                constructor() {
+                    super();
+
+                    const div = document.createElement("div");
+
+                    div.innerHTML = `
+                        <div>MyComponent: Text 1</div>
+                        <div part="text">MyComponent: Text 2</div>
+
+                        <inner-component></inner-component>
+                    `;
+
+                    const shadowRoot = this.attachShadow({ mode: "open" });
+
+                    shadowRoot.appendChild(div);
+                }
+            }
+
+            customElements.define("my-component", MyComponent);
+
+            class InnerComponent extends HTMLElement {
+                constructor() {
+                    super();
+
+                    const div = document.createElement("div");
+
+                    div.innerHTML = `
+                        <div>InnerComponent: Text 1</div>
+                        <div class="text-2">InnerComponent: Text 2</div>
+                        <div part="text-3">InnerComponent: Text 3</div>
+                    `;
+
+                    const shadowRoot = this.attachShadow({ mode: "open" });
+
+                    shadowRoot.appendChild(div);
+                }
+            }
+
+            customElements.define("inner-component", InnerComponent);
+        </script>
+
+        <my-component></my-component>
+    </body>
+</html>
